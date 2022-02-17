@@ -1,0 +1,67 @@
+spring:
+  redis:
+    port: 6379
+    host: dev.ccm.com
+    password: easydata
+    database: 3
+
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://mysql.mxwhx.cn:13306/wages?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&&serverTimezone=GMT%2B8
+    username: dev
+    password: tim970128
+
+server:
+  port: 10000
+  servlet:
+    context-path: /api/cb
+
+
+#加密解密配置
+web:
+  des:
+    # rsa私钥
+    privateKey: "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOwdEIgxK+9M/EC6knnY6aFqAZR5f9DpIDP2fcm52907+apJxwmUhWxtbkVEAbULlLehR+080YgoHOldzxm7c6OQCQLeesevGCvz6Ub2cayDe1fqE1LVtWAZ3HMqWkZHQbl/M0ZVabzc+NVs7q/XWQTpzFRr6gXJb+l5EteFhQMZAgMBAAECgYAZjee9Jb1AkA95Hfg+cciPbL6xCBlaTfDrTtE8ZP4zyorx8Dw3gDiUjJ9zpbGdm5xD55O2TG/NEbJXW4zPlycjpnpA8GXB8Gq0ZycugQJR6TQOspsR3hUtCL37dcDvQJ4eQMvoU4EkfvX3n/YYkPrvtx7w7Eint0HjZOGpMvHnAQJBAPY8YihZZnDMFr7tFUQ7bqO4Tl2TKtevvCS04cS6zNstbhKLKoz7ahHHRtysSAqobxJL6VAxzi8yqmYJRnBqoKECQQD1ee0YM/27S99vZZhMcGN/wiy26sEybQojBtyDh2aZLkkU4BUpyj/guUcIKrXKnUmBXNSGUHPzi4GZn0XqzLd5AkEAoCSvdiyGmm+xj2TkAudgUqxokyVGpNZPV9QoTWlsGFQYlYjbGKve1Uc0iAqoI/5dlpm2WQi7Xyjld80qeaxvYQJBAMY+fILiYhSjtsOhGbkJvuFLsI7c0b/mnZwiC25RqEMnRTANtCm2w5W6K6ply8Dg+570mFIMoUfbr4OgRHfWcokCQAr3ioaGXzclDRuWlgJMdfr4f3PuvlYgU7BHFNiEUOmuO9EDdL5ff1IRwNpKx6wxtHJ1qAb8e40mOTvdcSIlQxs="
+    # rsa公钥
+    publicKey: "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDsHRCIMSvvTPxAupJ52OmhagGUeX/Q6SAz9n3JudvdO/mqSccJlIVsbW5FRAG1C5S3oUftPNGIKBzpXc8Zu3OjkAkC3nrHrxgr8+lG9nGsg3tX6hNS1bVgGdxzKlpGR0G5fzNGVWm83PjVbO6v11kE6cxUa+oFyW/peRLXhYUDGQIDAQAB"
+    # md5签名密钥
+    md5Key: "cbadmin"
+    # 时间戳检查误差 ms
+    timestampCheckInterval: 10000
+    # 请求数据的key
+    requestParamKey: "d"
+    # 请求随机字符串的key
+    requestRandomStrKey: "rs"
+    # 请求签名的key
+    requestSignKey: "sign"
+    # 解密启用
+    decEnabled: true
+    # 加密启用
+    envEnable: true
+    # 是否显示日志
+    showLog: false
+    # 判断条件类名
+    conditionName: ""
+    # 请求唯一redis key
+    redisUniqueKey: "request-unique"
+    #数据urlencode
+    dataUrlEncode: true
+
+#系统
+system:
+  #存储
+  storage:
+    type: "local"
+    local:
+      root: "/Users/mrwangx/storage"
+#    aliyun:
+#      #外网访问url
+#      accessUrl: "pingzhengapp.oss-cn-hongkong.aliyuncs.com"
+#      #存储名
+#      bucketName: "pingzhengapp"
+#      #端点
+#      endpoint: "oss-cn-hongkong.aliyuncs.com"
+#      #访问用户标识
+#      accessKeyId: "LTAI5tGnGrSc6mpmHdS2ouwi"
+#      #访问用户密钥
+#      accessKeySecret: "F8Mj9FjFUPVGA6W2CmQbX5UkqUhQf1"

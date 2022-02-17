@@ -1,0 +1,60 @@
+spring:
+  profiles:
+    active: dev #开发环境
+
+  application:
+    name: "cbadmin-app" #应用名称
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true  #把Date类型序列化为timestamp
+
+  # jpa配置
+  jpa:
+    show-sql: false
+    generate-ddl: true  #自动生成表
+    database-platform:
+    hibernate:
+      ddl-auto: none
+      format-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
+  main:
+    allow-bean-definition-overriding: true
+
+  # 数据库配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 50
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 60000
+      connection-timeout: 30000
+    driver-class-name: com.mysql.cj.jdbc.Driver   #数据库的驱动
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+  session:
+    store-type: redis
+    timeout: 10800s
+#日志
+logging:
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%-40.40logger{39}){cyan}[%file:%line]    %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+  file:
+    name: logs/${spring.application.name}.log
+    max-history: 1
+    max-size: 1024MB
+
+server:
+  servlet:
+    session:
+      cookie:
+        path: /
+      timeout: 10800s

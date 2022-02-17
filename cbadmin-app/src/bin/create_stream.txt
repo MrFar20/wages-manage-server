@@ -1,0 +1,2 @@
+xadd ? * payload 1
+xgroup create ? default 0-0
